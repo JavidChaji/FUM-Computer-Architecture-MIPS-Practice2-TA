@@ -1,0 +1,50 @@
+.data
+prompt: .asciiz "Enter a non-negative integer: "
+result: .asciiz "The factorial is: "
+newline: .asciiz "\n"
+
+.text
+.globl main
+
+main:
+    # Print prompt and read input
+    li $v0, 4
+    la $a0, prompt
+    syscall
+    li $v0, 5
+    syscall
+    move $t0, $v0  # Store input in $t0
+
+    # Initialize variables
+    li $t1, 1     # $t1 stores the factorial
+    li $t2, 1     # $t2 stores the loop counter
+
+loop:
+    # Check if loop counter is greater than input
+    bgt $t2, $t0, print_result
+
+    # Multiply factorial by loop counter
+    mul $t1, $t1, $t2
+
+    # Increment loop counter
+    addi $t2, $t2, 1
+
+    # Repeat loop
+    j loop
+
+print_result:
+    # Print result
+    li $v0, 4
+    la $a0, result
+    syscall
+    li $v0, 1
+    move $a0, $t1
+    syscall
+    # Print newline
+    li $v0, 4
+    la $a0, newline
+    syscall
+
+    # Exit program
+    li $v0, 10
+    syscall

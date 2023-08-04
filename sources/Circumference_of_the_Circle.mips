@@ -1,0 +1,23 @@
+.data
+radius: .word 10      # radius of the circle
+pi:     .word 3       # value of pi
+
+.text
+main:
+    # load radius and pi into registers
+    lw $s0, radius
+    lw $s1, pi
+    
+    # calculate circumference of the circle
+    addi $t0, $zero, 2      # $t0 = 2
+    mul $t0, $t0, $s1       # $t0 = 2 * pi
+    mul $t0, $t0, $s0       # $t0 = 2 * pi * radius
+    
+    # print the circumference of the circle
+    addi $v0, $zero, 1      # $v0 = 1 (print integer)
+    add $a0, $t0, $zero     # $a0 = $t0 (circumference)
+    syscall
+    
+    # exit program
+    addi $v0, $zero, 10     # $v0 = 10 (exit)
+    syscall

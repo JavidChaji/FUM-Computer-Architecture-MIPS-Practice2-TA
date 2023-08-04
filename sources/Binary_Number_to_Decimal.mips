@@ -1,0 +1,54 @@
+# Assume that the binary number is stored in a string in memory
+# starting from address "bin_num". The length of the string is "len".
+
+.data
+bin_num: .asciiz "10101101"
+len: .word 8
+
+.text
+.globl main
+main:
+    # Load the address of the binary string into $s0
+    la $s0, bin_num
+    
+    # Load the length of the string into $t0
+    lw $t0, len
+    
+    # Initialize decimal value to zero
+    li $t1, 0
+    
+loop:
+    # Load the current character of the binary string into $t2
+    lb $t2, ($s0)
+    
+    # If we've reached the end of the string, exit the loop
+    beq $t0, $zero, end_loop
+    
+    # Convert the character to its corresponding integer value
+    sub $t2, $t2, 48
+    
+    # Multiply the current decimal value by 2
+    sll $t1, $t1, 1
+    
+    # Add the current binary digit to the decimal value
+    add $t1, $t1, $t2
+    
+    # Move to the next character of the string
+    addi $s0, $s0, 1
+    
+    # Decrement the string length
+    addi $t0, $t0, -1
+    
+    # Go back to the beginning of the loop
+    j loop
+    
+end_loop:
+    # The decimal value is now in $t1
+    # Do something with it, such as print it
+    li $v0, 1
+    move $a0, $t1
+    syscall
+    
+    # Terminate the program
+    li $v0, 10
+    syscall
