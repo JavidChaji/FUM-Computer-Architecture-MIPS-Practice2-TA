@@ -45,9 +45,9 @@ Ferdowsi University of Mashhad Computer Architecture MIPS Practice2 TA
 
 
 <!-- License -->
-[license-shield]: https://img.shields.io/github/license/javidchaji/FUM-Web-Programming-Hotel-Search-UI.svg?style=for-the-badge
+[license-shield]: https://img.shields.io/github/license/javidchaji/FUM-Computer-Architecture-MIPS-Practice2-TA.svg?style=for-the-badge
 
-[license-url]: https://github.com/javidchaji/FUM-Web-Programming-Hotel-Search-UI/blob/master/LICENSE
+[license-url]: https://github.com/javidchaji/FUM-Computer-Architecture-MIPS-Practice2-TA/blob/master/LICENSE
 
 
 <!-- Linkedin -->
