@@ -49,7 +49,9 @@ Ferdowsi University of Mashhad Computer Architecture MIPS Practice2 TA
 
 ### Built With
 
-This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
+<!-- This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples. -->
+
+This section should list any major frameworks/libraries used to bootstrap your project.
 
 * [![LaTeX][LaTeX.org]][LaTeX-url]
 
